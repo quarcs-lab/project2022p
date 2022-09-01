@@ -1,0 +1,192 @@
+\documentclass[12pt,twoside]{article}
+\usepackage{chadstyle}  % Loads my formatting 
+\usepackage{tweaklist}  % I use this package as well; you may need to download
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{threeparttable}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wallpaper}
+
+%%%%to minimize hyphenation%%%%%%
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\arraystretch}{1}
+% The height of each row is set to 1.5 relative to its default height. https://www.overleaf.com/learn/latex/Tables
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%--> Use this reference to designing a title page https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_5):_Customising_Your_Title_Page_and_Abstract
+
+\begin{titlepage}
+\begin{center}
+\vspace{7cm}
+
+\begin{spacing}{1.1}
+
+\huge
+\textbf{
+\textcolor{ChadBlue}{
+YourTitleHere: 
+}
+}
+
+\vspace{0.3cm}
+
+\Large
+\textcolor{ChadBlue}{
+YourSubTitleHere
+}
+\end{spacing}
+
+
+\vspace{0.3cm}
+\large
+by
+\vspace{0.3cm}
+
+\href{https://carlos-mendez.rbind.io}{Carlos Mendez}\\
+Graduate School of International Development\\
+Nagoya University
+
+\href{https://carlos-mendez.rbind.io}{Author 2}\\
+Affiliation1 \\
+Affiliation12
+
+\href{https://carlos-mendez.rbind.io}{Author 3}\\
+Affiliation1 \\
+Affiliation12
+
+\vspace{2cm}
+\normalsize
+December 2020
+
+\includegraphics[width=0.3\textwidth]{logo.png}
+
+https://quarcs-lab.org
+
+Quantitative Regional and Computational Science Lab
+
+Working Papers in Quantitative Regional Science
+
+Working Paper No. 2020a
+
+
+
+\end{center}
+
+
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{singlespacing}
+\begin{spacing}{0.9}
+\begin{titlepage}
+
+\title{
+\textbf{ 
+AddTitleHere: \\
+}
+AddSubtitleHere
+
+}
+
+
+\runningheads{Carlos Mendez \& Second Author}{ShortTitle}
+
+\author{
+  \large \href{https://carlos-mendez.rbind.io}{Carlos Mendez} 
+  \thanks{Corresponding author: \texttt{carlos@gsid.nagoya-u.ac.jp}}
+  \\
+  Nagoya University
+  \and
+  \large \href{https://quarcs-lab.org}{Second author} 
+  \\
+  ADDaffiliationHERE
+}
+
+\date{\small \today \ -- Version 0.1\\ {\it Preliminary draft}}
+\maketitle
+\thispagestyle{empty}
+
+%\clearpage
+\vspace{-0.3in}
+
+\begin{abstract}
+Add abstract here
+
+\vspace{0.5cm}
+
+\noindent \textbf{Keywords:} Keyword1, Keyword2, Keyword3 \\
+
+\noindent  \textbf{JEL Codes:}  R10, R11, R58   
+
+\end{abstract}
+
+\end{titlepage}
+\end{spacing}
+%\end{singlespacing}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add content here
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Related literature}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add content here.
+
+
+Example1: The paper of \cite{Acemoglu2010} argue blablaba.
+
+
+Example2: Blablabla \citep{Acemoglu2010}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods and Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add content here
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add content here
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concluding remarks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Add content here
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\small
+\bibliographystyle{apalike}
+\bibliography{references.bib}
+}
+
+\end{document}
