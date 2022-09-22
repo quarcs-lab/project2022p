@@ -1,0 +1,727 @@
+\documentclass[a4paper,twoside]{article}
+\usepackage{booktabs,multirow,bigstrut,rotating,graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=blue,urlcolor=blue,
+            anchorcolor=blue,citecolor=blue}
+\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{breqn}
+\usepackage{enumitem}
+\usepackage{cleveref}
+\usepackage{microtype}
+\usepackage{colortbl}
+\usepackage{bm}
+\usepackage[official]{eurosym}
+
+\newcommand{\note}[1]{\textcolor{red}{[{\bf #1}]}}
+
+\bibpunct{(}{)}{,}{a}{}{,}   % % changes formatting in natbib, see http://merkel.zoneo.net/Latex/natbib.php
+
+
+% =========================== 
+% IMPORTANT NOTE, PLEASE READ 
+% =========================== 
+%
+% This template helps you writing an article in LaTeX for REGION.
+% Since we do the layout editing in LaTeX, we highly recommend that
+% you already write the article in LaTeX. BUT, you should follow
+% some simple instructions and NOT try to apply the full set of
+% functions of LaTeX. This will save you and us a lot of work because
+% otherwise we will have to undo later all the fancy coding and packages
+% that you have entered.
+%
+% MOST IMPORTANT:
+%1. PLEASE, DO NOT use any other packages than the ones defined above.
+%   The packages above have been tested to work in our setup and to produce
+%   our "house style" output. Other packages may be incompatible or screw
+%   up the formatting. 
+%2. DO NOT invest much time into formatting of the text. In particular, 
+%   do not explicitly insert horizontal or vertical space. It is the task
+%   of the layout editor to make the paper look good (and according to the
+%   "house style"). Your task as the author is only to submit readable text.
+
+% Everything above this line should remain unchanged!!!
+
+% The next five lines define the space for text on the page. These lines are copied from REGION's
+% regart-style to ensure that formatting is close to the final one even when one uses the standard
+% article style (see Introduction below).
+
+\setlength{\textwidth}{13.5cm}
+\setlength{\textheight}{24.3cm}
+\setlength{\oddsidemargin}{1.3cm}
+\setlength{\evensidemargin}{1.3cm}
+\setlength{\topmargin}{-1cm}
+
+% The next set of lines integrates the Bib file into the TEX file so that the smaple text
+% does not require a separate file. Everything from (and including) this comment down to 
+% \end{filecontents} can (and should) be deleted when you use this file as a template for 
+% your own paper. 
+
+\usepackage{filecontents}
+\begin{filecontents}{test.bib}
+@article{article,
+  address = {Article Address},
+  author = {Article Author},
+  authoradd = {Article Authoradd}, 
+  booktitle = {Article Booktitle},
+  edition = {Article Edition},	
+  editor = {Article Editor},
+  institution = {Article Institution},
+  journal = {Article Journal},
+  month = {Article Month},
+  note = {Article Note},	
+  number = {Article Number}, 	
+  pages = {Article Pages},
+  publisher = {Article Publisher}, 	
+  series = {Article Series},	
+  title = {Article Title},	
+  type = {Article Type},
+  volume = {Article Volume},	
+  year = {2001},	
+}
+
+@book{book,
+  address = {Book Address},
+  author = {Book Author},
+  authoradd = {Book Authoradd}, 
+  booktitle = {Book Booktitle},
+  edition = {Book Edition},	
+  editor = {Book Editor},
+  institution = {Book Institution},
+  journal = {Book Journal},
+  month = {Book Month},
+  note = {Book Note},	
+  number = {Book Number}, 	
+  pages = {Book Pages},
+  publisher = {Book Publisher}, 	
+  series = {Book Series},	
+  title = {Book Title},	
+  type = {Book Type},
+  volume = {Book Volume},	
+  year = {2002},	
+}
+
+@incollection{incollection,
+  address = {InCollection Address},
+  author = {InCollection Author},
+  authoradd = {InCollection Authoradd}, 
+  booktitle = {InCollection Booktitle},
+  edition = {InCollection Edition},	
+  editor = {InCollection Editor},
+  institution = {InCollection Institution},
+  journal = {InCollection Journal},
+  month = {InCollection Month},
+  note = {InCollection Note},	
+  number = {InCollection Number}, 	
+  pages = {InCollection Pages},
+  publisher = {InCollection Publisher}, 	
+  series = {InCollection Series},	
+  title = {InCollection Title},	
+  type = {InCollection Type},
+  volume = {InCollection Volume},	
+  year = {2003},	
+}
+
+@techreport{techreport,
+  address = {TechReport Address},
+  author = {TechReport Author},
+  authoradd = {TechReport Authoradd}, 
+  booktitle = {TechReport Booktitle},
+  edition = {TechReport Edition},	
+  editor = {TechReport Editor},
+  institution = {TechReport Institution},
+  journal = {TechReport Journal},
+  month = {TechReport Month},
+  note = {TechReport Note},	
+  number = {TechReport Number}, 	
+  pages = {TechReport Pages},
+  publisher = {TechReport Publisher}, 	
+  series = {TechReport Series},	
+  title = {TechReport Title},	
+  type = {TechReport Type},
+  volume = {TechReport Volume},	
+  year = {2004},	
+}
+@techreport{subfloat,
+  author = {Harders, Harald},
+  title = {The subfloat package},
+  type = {LaTeX package documentation},
+  publisher = {Comprehensive Tex Archive Network},
+  year = {2003},
+  note = {\url{http://mirrors.ctan.org/macros/latex/contrib/subfloat/subfloat.pdf}},
+}
+
+@techreport{natbib,
+  author = {Merkel, Sebastien},
+  title = {Reference sheet for natbib usage},
+  type = {Online document},
+  year = {2002},
+  note = {\url{http://merkel.zoneo.net/Latex/natbib.php}},
+}
+
+
+\end{filecontents}
+
+
+% The next few lines (down to "\begin{document}") define the title information.
+% Please, substitute the values for \title and \author with the text appropriate for your
+% submission. The commented lines will be used in layout editing. Please, leave
+% leave them commented and do not change them.
+
+\title{Writing an article for REGION with \LaTeX}
+
+\author{Gunther Maier}
+
+\date{} 
+%\setcounter{page}{1} % CHANGE!!
+%\renewcommand{\thepage}{\arabic{page}}
+%\jvol{2} % \jvol{1}
+%\jnum{2} % \jnum{1}
+%\jyear{2015} % \jyear{2014}
+%\jpages{1--26} % \jpages{1--3}
+%\jauthor{} % P.\ Lagas, F.\ van Dongen, F.\ van Rijn, H.\ Visser
+
+%\received{} % \received{9 April 2014}
+%\accepted{} % \accepted{9 April 2014}
+
+
+\begin{document}
+
+% Here starts the section where your text will go. We have added some
+% template statements and explanatory comments. We recommend that you
+% compile this document and print it before any further changes. This
+% will give you a document with valuable (we hope) instructions.
+
+\maketitle
+
+\begin{abstract}
+This document describes some of the peculiarities of writing a paper for REGION in \LaTeX. Please, read it carefully to avoid unneccessary work for you as well as the layout editor on REGION. The document is available in compiled form as PDF file at the REGION homepage (\href{template.pdf}{template.pdf}). The document can be used as a template for your own paper. A clean version of the template is available as \href{template\_plain.tex}{template\_plain.tex}.
+\end{abstract}
+
+
+
+
+\section{Introduction}
+\label{sec:1}
+
+This \LaTeX\ file should serve two purposes. First, it should serve as a template for writing papers in \LaTeX\ for REGION. Second, it should give instructions and suggestions for writing such a paper. When you compile this TEX-file into a PDF-file with pdflatex (or any other way) you will get a set of instructions and suggestions for writing an article for REGION with \LaTeX. When you open the TEX-file in your favorite text-editor, you can delete this commenting text and use the embedded \LaTeX-code as template for your own paper.
+
+The reason, why you should use this template rather than your own \LaTeX-style and favorite set of packages is that it will save you as well as us a lot of time and effort. \LaTeX\ is so powerful and flexible that one can do a lot of fancy things with it. But, articles in REGION follow a specific style -- we call this our ``house style" -- which implies that many of the fancy features you embed into your TEX-file will have to be removed by the layout editor in order to make your article compatible with REGION's house style.
+
+In case you have not read the comment in the heading of this TEX-file, I repeat the most important message:
+\begin{enumerate}
+\item PLEASE, DO NOT use any other packages than the ones called in this template. The packages called in this template have been tested to work in our setup and to produce our ``house style" output. Other packages may be incompatible or screw up the formatting. 
+\item DO NOT invest much time into formatting of the text. In particular, do not explicitly insert horizontal or vertical space. It is the task of the layout editor to make the paper look good (and according to the ``house style"). Your task as the author is only to submit readable text.
+\end{enumerate}
+This document is not a \LaTeX-tutorial. We assume that you have basic knowledge of \LaTeX\ and have already used it. By saying this, by no means we want to discourage you to start using \LaTeX. If your intended submission for REGION will make you learn the use of \LaTeX, even better. \LaTeX\ is a great product and the time and effort you need to learn it, is well spent. All we want to say is that in this case -- when you are new to using \LaTeX\ -- you will probably need additional resources than what we can provide in this text. There are great books about \LaTeX\ on the market and also good tutorials on the Internet. 
+
+\section{Basics}
+\label{sec:2}
+
+In this section we discuss a few basic issues that may be important or at least good to know.
+
+\subsection{Document Class}
+\label{sec:2.1}
+
+When you open this TEX-file in your favorite text editor, you will see that the very first line is
+
+\begin{verbatim}
+\documentclass[a4paper,twoside]{article}
+\end{verbatim}
+
+The term ``article" in this statement means that this TEX-file -- and your paper if you leave this line unchanged -- uses the document class ``article" for formatting. This is one of the standard document classes that is available in every installation of \LaTeX. However, it is not the document class that will be used for the final formatting -- once all the reviewing and the copy editing are done -- of your paper. The layout editor will actually use the document class ``regart", which defines all the REGION-specific formatting. This document class, however, is based on ``article" and mostly just adds statements and commands for the formatting of the title page of a REGION-article. Since we use the document class ``article" in this TEX-file, you can readily compile it into a nicely formatted and well readable document. If you want, you can also download the document class ``regart" from the REGION homepage, install it in your local version of \LaTeX, and produce a submission with a final look. The respective files are available at the REGION homepage (section ``help").
+
+The document-class ``regart" also defines a number of new commands and variables which are used for generating the title page of an article in REGION. Many of them require information which is not known to the author and need to be filled in by the layout editor anyways. In this TEX-file the respective statements are commented in the header segment.
+
+\subsection{Structure and Labeling}
+\label{sec:2.2}
+
+The house style of region allows for three levels of headings: \verb|\section|, \verb|\subsection| and \verb|\subsubsection|. We know that \LaTeX\ is more flexible and allows for a deeper structuring. However, we strongly encourage you to structure your article in such a way that you can stay within these three layers. This limitation typically leads to a better structured and therefore more readable article.
+
+REGION allows for an appendix. This appendix can again be structured and functions really like an extra section of the paper -- complete with subsections and possibly subsubsections.
+
+We suggest that you use labels for every section, subsection, subsubsection, equation, table, and figure and that you use the \LaTeX\ command \verb|\ref| for cross-referencing. \LaTeX\ is very good in this and produces a consistent output even after you have moved parts around in your text. Avoid typing referencing numbers in your text. Never ever type things like ``\verb|As discussed in section 3|". Instead, you should give the respective section heading a label -- say \verb|\label{sec:5}| -- and use ``\verb|As discussed in section \ref{sec:5}|" instead.  
+
+Although \LaTeX\ allows you to use any string of characters for labeling, we suggest that you use a consistent style. When you inspect this TEX-file, you will see that we use a a short identifier for the type of element the label refers to, a semicolon, and then one or more numbers separated by periods. We use \verb|sec:| for sectioning statements, \verb|eq:| for equations, \verb|fig:| for figures, and \verb|tab:| for tables. So, with \verb|sec:2.3.1| we typically label subsubsection 1 in subsection 3 of section 2. However, you should keep in mind that this is just a convention that we suggest. \LaTeX\ is completely flexible in terms of labeling. The labels are just identifies with no specific structure and meaning. Therefore, our suggestion applies only to the initial labeling when you write your article. When you later have to restructure your text maybe due to some referee comments, we suggest that you keep the original labels. Manually rewriting the labels is not worth the effort and introduces an unnecessary risk of errors.
+
+In case you wonder how one defines a subsubsection in \LaTeX, here is an example with our suggested style of labeling:
+
+\subsubsection{A sample subsubsection}
+\label{sec:2.2.1}
+
+
+\section{Equations}
+\label{sec:3}
+
+Probably most \LaTeX-users will agree that the best feature of \LaTeX\ is its handling of mathematical expressions. Even standard \LaTeX\ comes with an impressive set of symbols, operators and terms for the typesetting of mathematical expressions. This set is substantially extended by the package ``amsmath", which we load in the heading of this TEX-file. You can use all these features in writing your paper for REGION. 
+
+Here is an example for an equation which is formatted separately from the text. 
+
+\begin{equation}
+P_i = \sum_{j=1}^N \frac{x_j}{1 + \exp(a+b\ln(d_{ij}))} 
+\label{eq:1}
+\end{equation}
+
+The same equation can also be formatted as part of the text: ``The probability for selecting option $i$, $P_i$, can be written as $P_i = \sum_{j=1}^N \frac{x_j}{1 + \exp(a+b\ln(d_{ij}))}$." In this case, however, the equation will be unnumbered and cannot be given a label.
+
+
+\section{Figures and Tables}
+\label{sec:4}
+
+Figures and tables are elements that are floating in \LaTeX. This means that they are typically not typeset at the point where they are positioned in the text flow of the TEX-file, but at the location where according to the parameters and to \LaTeX's algorithm they are positioned best. The positioning of figures and tables in the final PDF-file is the job of the layout editor. We recommend that you do not specify any positioning parameters for figures and tables or make any attempts to ``nicely" position these elements. It is sufficient when they are properly defined in the TEX-file at the position where they might be well positioned.
+
+\subsection{Figures}
+\label{sec:4.1}
+
+
+We assume that figures are generated by some other piece of software, saved in some graphics format, and just positioned in your TEX-file. For including an external graphic into a \LaTeX-figure, you use the command \verb|\includegraphics|. Examples will be shown below. In the following figure-environment this command is commented in order to avoid an error because of the missing graphics file. For your own paper you will have to uncomment this line -- i.e.\ delete the \%-character at the beginning of the line, and to specify the correct name for the external file. In order to have \emph{some} output shown, we have entered a ``tabular*" block. You should replace this whole block by just one ``includegraphics"-command.
+
+\subsubsection{Simple Figures}
+\label{sec:4.1.1}
+
+The set of commands for a simple figure for a paper in REGION should look as follows:
+
+\begin{verbatim}
+    \begin{figure}
+      \centering
+        \includegraphics[width=\textwidth]{fig_1}
+      \caption{CAPTION OF THE FIGURE}
+      \label{fig:1a}
+    \end{figure}
+\end{verbatim}
+
+\begin{figure}
+\centering
+\begin{tabular*}{0.5\textwidth}{|c|}
+{\bf dummy float} \\
+replace the tabular*-block with the appropriate \\
+includegraphics.
+\end{tabular*}
+%\includegraphics[width=.9\textwidth]{fig_1}
+\caption{CAPTION OF THE FIGURE}
+\label{fig:1}
+\end{figure}
+
+\noindent There are a few things worth mentioning here. First, the \verb|\begin{figure}| -- \verb|\end{figure}| pair wraps all the other commands and defines the floating element. Second, the command \verb|\centering| ensures that all the output (picture and caption) is horizontally centered on the page. Third, the \verb|\includegraphics| command comes before the \verb|\caption| command. This ensures that the caption of the figure is positioned at the bottom. This is different from tables, where according to the house style of REGION the caption is positioned at the top.
+
+
+\subsubsection{Side-by-side figures}
+\label{sec:4.1.2}
+
+Sometimes it makes sense to position two figures side-by-side next to each other. In \LaTeX\ there are various packages that provide this functionality. However, some of them create conflicts with other packages that we use or with the program ``htlatex", which we use for generating the HTML-version of the paper. The package ``subfig", which is loaded in the heading of this TEX-file is compatible with all the functions we need. Therefore, we urge you to use only this package for this functionality. 
+
+Again, the floating element is defined by \verb|\begin{figure}| and \verb|\end{figure}|. Also \verb|\centering| and \verb|\caption{}| (including \verb|\label{}|) are at the same positions as before. In order to get two figures side-by-side, we now need two \verb|\includegraphics|-statements, each one wrapped into a \verb|\subfloat{}|-command. For the details of this command, see the documentation of the subfloat package \citep{subfloat}. The \verb|\quad| between the two statements produces enough horizontal space between the two figures so that the two captions are perceived as separated. Also note that the width parameters of the two \verb|\includegraphics|-commands are set to 46\% of the width of the text so that the figures fit on the page side-by-side. For placing more figures side-by-side, these parameters need to be adjusted accordingly. Some trial and error steps may be needed to find the best combination of values.
+
+
+\begin{verbatim}
+    \begin{figure}
+      \centering
+      \subfloat[CAPTION OF LEFT HAND FIGURE]{\label{fig:A1}
+        \includegraphics[width=0.46\textwidth]{}
+      } 
+      \quad
+      \subfloat[CAPTION OF RIGHT HAND FIGURE]{\label{fig:A2}
+        \includegraphics[width=0.46\textwidth]{}
+      }
+      \caption{CAPTION OF THE WHOLE FIGURE}
+      \label{fig:A}
+    \end{figure}
+\end{verbatim}
+
+\begin{figure}
+\centering
+\subfloat[CAPTION OF LEFT HAND FIGURE]{\label{fig:A1}
+\begin{tabular*}{0.46\textwidth}{|c|}
+{\bf left hand dummy float} \\
+replace the tabular*-block\\
+with the appropriate \\
+includegraphics.
+\end{tabular*}
+%\includegraphics[width=0.5\textwidth]{}
+} 
+\quad
+\subfloat[CAPTION OF RIGHT HAND FIGURE]{\label{fig:A2}
+\begin{tabular*}{0.46\textwidth}{|c|}
+{\bf right hand dummy float} \\
+replace the tabular*-block\\
+with the appropriate \\
+includegraphics.
+\end{tabular*}
+%\includegraphics[width=0.49\textwidth]{}
+}
+\caption{CAPTION OF THE WHOLE FIGURE}
+\end{figure}
+
+Also note that each subfigure as well as the figure as a whole can get a heading and a label so that each one of them can be referenced in \LaTeX.
+
+
+\subsection{Tables}
+\label{sec:4.2}
+
+We use a number of packages in order to get the house style of REGION for tables. The main features of the house style are:
+\begin{itemize}
+  \item Every table covers the full text width on the page.
+  \item There are no vertical lines allowed.
+  \item Horizontal lines are at the top and the bottom of the table (thicker), a thinner line separates the table heading from the body. 
+  \item The caption is above the content of the table.
+\end{itemize}
+Tables may extend over more than one page and/or may be typeset sideways. 
+
+Again, the final formatting of tables is the task of the layout editor. The instructions here are not intended to assist you with perfectly formatting your tables, but to help you avoid complex and time consuming formatting that later will have to be removed by the layout editor with a lot of effort and time. If you are in doubt, please, keep the formatting very simple -- just enough to understand the structure of the table -- and leave the task to the layout editor.
+
+\subsubsection{Simple Tables}
+\label{sec:4.2.1}
+
+The basic structure of a simple table is the following:
+
+\begin{verbatim}
+    \begin{table}
+      \caption{Characteristics of the 11 clusters of European NUTS2-regions}
+      \label{tab:1}
+
+      { %\footnotesize
+        %\setlength{\tabcolsep}{6pt}
+        %\renewcommand{\arraystretch}{1.2}
+        \begin{tabular*}{\textwidth}{lrrrrrrrrrr}
+          \toprule
+
+          \midrule
+
+          \bottomrule
+        \end{tabular*}
+      }
+    \end{table}
+\end{verbatim}
+
+As mentioned above, tables are also floating elements in \LaTeX. The floating element is defined by \verb|\begin{table}| and \verb|\end{table}|. \verb|\caption{}| and \verb|\label{}| again define the caption of the table and its label (for cross-referencing). The main body of the table is defined by the ``tabular" environment. For REGION we use a specific variant of this environment, ``tabular*". It is defined by \verb|\begin{tabular*}| and \verb|\end{tabular*}|. This environment offers an extra parameter for setting the width of the table. In the example we define it as \verb|\textwidth|, the width of the text.The commands \verb|\toprule|, \verb|\midrule| and \verb|\bottomrule| originate from the booktabs-package and draw the thick rules at the top (\verb|\toprule|) and the bottom (\verb|\bottomrule|) of the table and the slightly thinner rule inside the table (\verb|\midrule|). The house style of REGION defines that only one \verb|\midrule| should be used. Further divisions within the table should be created with additional space between rows through the optional parameter in the linebreak command of the table: for example, \verb|\\[3mm\]| adds an extra 3 millimeter to the space between the current and the next row.
+
+In the basic structure above the tabular environment is wrapped into a pair of curly brackets with three extra commands that are commented. These commands should be used in order to properly space the content of the table. The tabular* environment does not mean that the content of the table is automatically spaced according to the defined width. Only the horizontal lines extend over the defined width. To stretch the content of the table across the width of the text area we can adjust the space between the columns of the table by changing the \LaTeX-variable \verb|\tabcolsep|. For this we uncomment the line \verb|\setlength{\tabcolsep}{2pt}| and change ``6pt" -- the default value -- to the desired value.
+
+By altering the value for \verb|\arraystretch| one can change the height of all rows of a table. This variable is a factor by which the standard height is multiplied. Default value is 1. Values larger than 1 yield wider, values smaller than 1 narrower rows.
+
+Sometimes tables have so much content that even with a very small value for \verb|\tabcolsep| it does not fit into the textwidth of the page. Different strategies can be applied to solve this problem:
+\begin{enumerate}
+  \item One can reformat the text in the cells of the table so that the columns become narrower.
+  \item One can change the size of the font of the text in the table so that it needs less space. This is done with a font-size statement like \verb|\footnotesize|, which is commented in the sample table code.
+  \item One can rotate the whole table so that it is printed sideways in landscape format. This is done with the ``sidewaystable" environment.
+\end{enumerate}
+
+Table \ref{tab:1} shows the example of a table with font-size set to \verb|\footnotesize| and \verb|\tabcolsep| reduced to ``2pt".
+
+\begin{table}
+\caption{Characteristics of the 11 clusters of European NUTS2-regions}
+\label{tab:1}
+
+{ \footnotesize
+\setlength{\tabcolsep}{2pt}
+%\renewcommand{\arraystretch}{1.2}
+    \begin{tabular*}{\textwidth}{lrrrrrrrrrr}
+    \toprule
+          &       & \multicolumn{1}{l}{} & \multicolumn{1}{l}{Social} &       &       &       &       & \multicolumn{1}{l}{Natural} &       &  \\
+          & \multicolumn{1}{l}{Gover-} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{environ-} &       & \multicolumn{1}{l}{Educa-} & \multicolumn{1}{l}{Public} & \multicolumn{1}{l}{Recrea-} & \multicolumn{1}{l}{environ-} &       & \multicolumn{1}{l}{Average} \\
+    Cluster & \multicolumn{1}{l}{nance} & \multicolumn{1}{l}{PP\&E}  & \multicolumn{1}{l}{ment}  & \multicolumn{1}{l}{Health} & \multicolumn{1}{l}{tion}  & \multicolumn{1}{l}{services} & \multicolumn{1}{l}{tion}  & \multicolumn{1}{l}{ment}  & \multicolumn{1}{l}{Housing} & \multicolumn{1}{l}{of RQI} \\
+    \midrule
+    H-GDP H-wPD & 7.9   & 6.5   & 8.4   & 7.5   & 7.8   & 7.6   & 7.3   & 5.0   & 6.1   & 7.1 \\
+    H-GDP M-wPD & 8.0   & 6.6   & 8.5   & 7.5   & 7.3   & 7.5   & 6.8   & 5.5   & 5.9   & 7.1 \\
+    H-GDP L-wPD & 8.7   & 6.6   & 8.9   & 7.8   & 6.3   & 7.2   & 6.7   & 6.0   & 5.7   & 7.1 \\[3mm]
+    M-GDP H-wPD & 6.7   & 5.4   & 7.4   & 6.9   & 6.4   & 6.4   & 6.5   & 5.0   & 5.3   & 6.2 \\
+    M-GDP M-wPD & 7.3   & 5.9   & 8.0   & 7.5   & 6.1   & 6.9   & 6.6   & 5.5   & 5.6   & 6.6 \\
+    M-GDP L-wPD & 7.6   & 6.3   & 8.0   & 7.6   & 5.4   & 7.1   & 6.8   & 6.3   & 5.6   & 6.7 \\[3mm]
+    L-GDP H-wPD & 4.4   & 6.4   & 4.6   & 4.5   & 3.5   & 4.9   & 3.7   & 6.3   & 4.3   & 4.7 \\
+    L-GDP M-wPD & 5.7   & 5.6   & 6.3   & 5.4   & 4.2   & 5.2   & 4.7   & 6.4   & 4.4   & 5.3 \\
+    L-GDP L-wPD & 5.4   & 5.4   & 5.9   & 5.8   & 3.6   & 5.2   & 4.4   & 6.3   & 4.6   & 5.2 \\[3mm]
+    VL wPD      & 6.9   & 5.7   & 7.5   & 7.3   & 3.9   & 5.6   & 5.2   & 6.4   & 5.2   & 6.0 \\
+    VL GDP      & 4.3   & 6.2   & 5.0   & 3.5   & 2.6   & 4.7   & 3.7   & 7.1   & 3.5   & 4.5 \\
+    \bottomrule
+    \end{tabular*}%
+\\[3mm]Note: PP\&E $\ldots$ Purchasing Power and Employment
+}
+\end{table}
+
+\subsubsection{More complicated Tables}
+\label{sec:4.2.2}
+
+Again, you can leave the formatting of more sophisticated tables to the layout editor. For your submission, your tables just need to be readable for editor and referees. There are currently two versions of more sophisticated tables that the REGION house style can handle: 
+\begin{enumerate}
+  \item sideways rotated tables and
+  \item tables extending over more than one page.
+\end{enumerate} 
+
+Sideways rotated tables are fairly easy to handle. The package ``rotating" provides the environment ``sidewaystable" which rotates all its content (including the table caption) by 90 degrees. To use this feature, we only have to replace \verb|\begin{table}| and \verb|\end{table}| by \verb|\begin{sidewaystable}| and \verb|\end{sidewaystable}|. The rest can remain as it is. In practice we will have to adjust the spacing between columns and rows in order to properly place the table on the page. A rotated table is always placed on a separate page. Details can be found in the package documentation.
+
+\begin{sidewaystable}
+\caption{Characteristics of the 11 clusters of European NUTS2-regions}
+\label{tab:sideways}
+
+{ %\footnotesize
+\setlength{\tabcolsep}{13pt}
+\renewcommand{\arraystretch}{1.8}
+    \begin{tabular*}{\textwidth}{lrrrrrrrrrr}
+    \toprule
+          &       & \multicolumn{1}{l}{} & \multicolumn{1}{l}{Social} &       &       &       &       & \multicolumn{1}{l}{Natural} &       &  \\
+          & \multicolumn{1}{l}{Gover-} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{environ-} &       & \multicolumn{1}{l}{Educa-} & \multicolumn{1}{l}{Public} & \multicolumn{1}{l}{Recrea-} & \multicolumn{1}{l}{environ-} &       & \multicolumn{1}{l}{Average} \\
+    Cluster & \multicolumn{1}{l}{nance} & \multicolumn{1}{l}{PP\&E}  & \multicolumn{1}{l}{ment}  & \multicolumn{1}{l}{Health} & \multicolumn{1}{l}{tion}  & \multicolumn{1}{l}{services} & \multicolumn{1}{l}{tion}  & \multicolumn{1}{l}{ment}  & \multicolumn{1}{l}{Housing} & \multicolumn{1}{l}{of RQI} \\
+    \midrule
+    H-GDP H-wPD & 7.9   & 6.5   & 8.4   & 7.5   & 7.8   & 7.6   & 7.3   & 5.0   & 6.1   & 7.1 \\
+    H-GDP M-wPD & 8.0   & 6.6   & 8.5   & 7.5   & 7.3   & 7.5   & 6.8   & 5.5   & 5.9   & 7.1 \\
+    H-GDP L-wPD & 8.7   & 6.6   & 8.9   & 7.8   & 6.3   & 7.2   & 6.7   & 6.0   & 5.7   & 7.1 \\[3mm]
+    M-GDP H-wPD & 6.7   & 5.4   & 7.4   & 6.9   & 6.4   & 6.4   & 6.5   & 5.0   & 5.3   & 6.2 \\
+    M-GDP M-wPD & 7.3   & 5.9   & 8.0   & 7.5   & 6.1   & 6.9   & 6.6   & 5.5   & 5.6   & 6.6 \\
+    M-GDP L-wPD & 7.6   & 6.3   & 8.0   & 7.6   & 5.4   & 7.1   & 6.8   & 6.3   & 5.6   & 6.7 \\[3mm]
+    L-GDP H-wPD & 4.4   & 6.4   & 4.6   & 4.5   & 3.5   & 4.9   & 3.7   & 6.3   & 4.3   & 4.7 \\
+    L-GDP M-wPD & 5.7   & 5.6   & 6.3   & 5.4   & 4.2   & 5.2   & 4.7   & 6.4   & 4.4   & 5.3 \\
+    L-GDP L-wPD & 5.4   & 5.4   & 5.9   & 5.8   & 3.6   & 5.2   & 4.4   & 6.3   & 4.6   & 5.2 \\[3mm]
+    VL wPD      & 6.9   & 5.7   & 7.5   & 7.3   & 3.9   & 5.6   & 5.2   & 6.4   & 5.2   & 6.0 \\
+    VL GDP      & 4.3   & 6.2   & 5.0   & 3.5   & 2.6   & 4.7   & 3.7   & 7.1   & 3.5   & 4.5 \\
+    \bottomrule
+    \end{tabular*}%
+\\[3mm]Note: PP\&E $\ldots$ Purchasing Power and Employment
+}
+\end{sidewaystable}
+
+
+Table \ref{tab:sideways} shows Table \ref{tab:1} typeset as rotated table. Note that we have commented the command \verb|\footnotesize| to use the standard font size and have increased \verb|\tabcolsep| to 13pt and \verb|\arraystretch| to 1.8 in order to use up the available space on the page.
+
+Formatting tables that extend over more than one page is somewhat more challenging. The environment for this task is ``longtable", which is provided by the longtable package. Details can be found in the package documentation. The environment is defined by \verb|\begin{longtable}| and \verb|\end{longtable}|. In contrast to the previous table environments it does not use ``tabular", but formats the table content directly. The environment also allows the user to define headers and footers for the first page, all the following pages, and the last page. Table \ref{tab:A1} gives an example of such a table.
+
+
+
+
+
+{\footnotesize
+\begin{longtable}{llll}
+\caption{Additional information with respect to the data applied for the calculation of the Regional Quality of Life Index} \label{tab:A1} \\
+\toprule
+Indicator/ Sub-indicators/datasets & Geographical & Source & Reference \\
+of Regional Quality of Living      & level        &        & year      \\
+\midrule 
+\endfirsthead
+\toprule 
+Indicator/ Sub-indicators/datasets & Geographical & Source & Reference \\
+of Regional Quality of Living      & level        &        & year      \\
+\midrule 
+\endhead
+\bottomrule  
+\multicolumn{4}{r}{\emph{continued on the next page}}
+\endfoot
+\bottomrule 
+\endlastfoot
+    {\bf RQI 1  Governance} &       &      &   \\
+    {\bf RQI 1.1 Governance Effectiveness} (regi- &       &       &  \\
+    onal correction for national data applied) &       &       &  \\
+    Government Effectiveness & Country & 2012www & 2011 \\
+    Regulatory Quality       & Country & 2012www & 2011 \\
+    Rule of Law: & NUTS2/NUTS1 & charron2012            & 2009 \\
+                 &             & charron2012              &      \\
+    Control of Corruption & NUTS2/NUTS1 & charron2012   & 2009 \\
+                          &             & charron2012     &      \\
+    Corruption            & Country     & ti2012             & 2012 \\[3mm]
+    {\bf RQI 1.2 Political Stability and terror} &       &       &  \\
+    Political Terror Scale & Country    & voh2012       & 2011 \\
+                           & Country    &          &  \\
+    Political Stability and Absence of & Country & 2012www & 2011 \\
+    Violence/Terrorism &  &  &  \\
+    Physical Integrity Rights Index & Country & voh2012 & 2011 \\
+     &  &       &  \\
+    Political stability & Country & cingranelli2011 & 2011 \\[3mm]
+    {\bf RQI 1.3 Banks (Country indicator)} &       &       &  \\
+    Standard \& Poor Country ratings & Country & sp2013   & 2013 \\
+    Soundness of banks & Country & stiftung2011 & 2011 \\[3mm]
+    {\bf RQI 2  Purchasing power and jobs} &       &       &  \\
+    {\bf RQI 2.1 Housing Affordability} &       &       &  \\
+    Price owner-occupied housing & NUTS2 (both) & eurostat2015 & 2009 \\
+    (relative to Disposable income) & & eurostat2015 &  \\
+    Price rented housing & NUTS2 (both) & eurostat2015 & 2009 \\
+    (relative to Disposable income) &       & eurostat2015 &  \\[3mm]
+    {\bf RQI 2.2 Employment} &       &       &  \\
+    Unemployment (15–24 year age group) & NUTS2 & eurostat2015 & 2012 \\
+    Unemployment (20–65 year age group) & NUTS2 & eurostat2015 & 2012 \\[3mm]
+    {\bf RQI 2.3 Cost of living} &       &       &  \\
+    Price goods & Country (Goods) & eurostat2015 & 2010 \\
+    (relative to Disposable income) & NUTS2 (income) & eurostat2015 &  \\
+    Price fuel/alcohol & Country (Goods) & eurostat2015 & 2010 \\
+    (relative to Disposable income) & NUTS2 (income) &  eurostat2015 &  \\[3mm]
+    {\bf RQI 3 Social environment} &       &       &  \\
+    {\bf RQI 3.1 Safety} (regional correction for &       &       &  \\
+    national data applied) &       &       &  \\
+    Feel safe in this city? & Cities & eurostat2015 & 2009 \\
+    Most people can be trusted? & Cities & eurostat2015 & 2009 \\
+    Feel safe in this neighbourhood? & Cities & eurostat2015 & 2009 \\
+    Business costs of crime and violence & Country & eurostat2015 & 2011 \\
+    (Country data) &  &  &  \\
+    Reliability of police services & Country & eurostat2015 & 2011 \\
+    (Country data) &   &   &   \\
+    Organised crime (Country data) & Country & eurostat2015 & 2011 \\[3mm]
+    {\bf RQI 3.2  Freedom} (Country Indicator) &       &       &  \\
+    Civil Rights & Country & stiftung2011 & 2011 \\
+    Access to Information & Country & stiftung2011 & 2011 \\
+    Voice and accountability & Country & 2012www & 2011 \\[3mm]
+    {\bf RQI 3.3 Social cohesion} &  &       &  \\
+    (Country indicator) &  &       &  \\
+    Most of the time: people helpful or mostly& NUTS2 & survey2014 & 2011 \\
+    looking out for themselves &  &  &  \\
+    Important to help people and care for & NUTS2 & survey2014 & 2011 \\
+    others well-being &  &  &  \\
+    Important to be loyal to friends and & NUTS2 & survey2014 & 2011 \\
+    devote to people close &  &   &  \\
+    Participating in social activities of a club, & NUTS2 & eurofound2014 & 2011 \\
+    society or association &  &  &  \\
+    How often did you do unpaid voluntary & NUTS2 & eurofound2014 & 2011 \\
+    work in the last 12 months? &  &  &  \\[3mm]
+    {\bf RQI 4 Health} &       &       &  \\
+    {\bf RQI 4.1 Healthcare}  &       &       &  \\
+    Infant mortality rate & Country & eurostat2015 & 2009 \\
+    Satisfied with hospitals? & Cities & eurostat2015 & 2009 \\
+    Cancer death rate & NUTS2 & eurostat2015 & 2010 \\
+    Per capita government expenditure & Country & who2011 & 2011 \\
+    on health &   &   &   \\
+    Satisfied with healthcare? & Cities & eurostat2015 & 2009 \\
+    Satisfied with doctors? & Cities & eurostat2015 & 2009 \\
+    Heart disease death rate & NUTS2 & eurostat2015 & 2010 \\
+    Per capita total expenditure on health at & Country & who2011 & 2011 \\
+    average exchange rate (USD) &  &  &  \\[3mm]
+\end{longtable}
+\noindent Note: Indicator scores were calculated from average of sub-indicators unless otherwise mentioned. Sub-indicators were calculated from average of underlyingdata unless otherwise mentioned.
+}
+
+\section{Bibliography}
+\label{sec:5}
+
+\subsection{Bibliography with BibTeX}
+\label{sec:5.1}
+
+For bibliographies we use a reduced version of BibTeX in combination with the ``natbib" package. For this package we defined our own reference style, REGION, which is an adapted version of the chicago style. If you want to use the REGION reference style in your own installation of \LaTeX, you can download the file ``REGION.bst" from the homepage of REGION.
+
+This setup requires the following commands in the TEX file:
+\begin{enumerate}
+  \item Loading of the ``natbib" package with \verb|\usepackage{natbib}| in the header,
+  \item defining the REGION reference style with \verb|\bibliographystyle{REGION}|, and
+  \item loading the bibliography file with \verb|\bibliography{<filename>}|.
+\end{enumerate}
+
+All the references that you MAY use are defined in this bibliography file. The bibliography will be generated in the output at that location where you loaded the bibliography file. However, \LaTeX\ puts only those references in the bibliography that actually were cited in the text with one of the citation commands. Without any citation commands you will only get the heading ``References", but no content.
+
+
+\subsection{Citation commands}
+\label{sec:5.2}
+
+Just like in the case of \verb|\label| and \verb|\ref|, bibliographic entries are referred to via a key. This key uniquely defines each entry in the bibliography file and is used in the text for citing this specific entry. The three most important citation commands defined by ``natbib" are
+\begin{enumerate}
+  \item \verb|\citep{<keylist>}| produces \citep{article} or \citep{article,book,techreport}
+  \item \verb|\citet{<keylist>}| produces \citet{article} or \citet{article,book,techreport}
+  \item \verb|\citealt{<keylist>}| produces \citealt{article} or \citealt{article,book,techreport}
+\end{enumerate}
+For more details and additional citation commands see the documentation of ``natbib" \citep{natbib}.
+
+The references we need for the discussion in the following subsection are \citet{article}, \citet{book}, \citet{incollection}, and \citet{techreport}.
+
+
+\subsection{Bibliography file}
+\label{sec:5.3}
+
+\begin{table}
+\centering
+\caption{Types and fields for bibliographies in REGION}
+\label{tab:6}
+\begin{tabular}{||l|c|c|c|c||}
+\hline
+  {\bf Field} \hspace{13mm} & \hspace{5mm} {\bf Article} \hspace{5mm} & \hspace{5mm} {\bf Book} \hspace{5mm} & {\bf InCollection} & {\bf TechReport}  \\ \hline
+  address      &         &  Y   &    Y         &   Y         \\ \hline
+  author       &    Y    &  Y   &    Y         &   Y         \\ \hline
+  authoradd    &    Y    &  Y   &    Y         &   Y         \\ \hline 
+  booktitle    &         &      &    Y         &             \\ \hline
+  edition      &         &  Y   &    Y         &             \\ \hline	
+  editor       &         &  Y$^*$   &    Y         &             \\ \hline
+  institution  &         &      &              &   Y         \\ \hline
+  journal      &    Y    &      &              &             \\ \hline
+  month        &    Y    &  Y   &    Y         &   Y         \\ \hline
+  note         &    Y    &  Y   &    Y         &   Y         \\ \hline
+  number       &         &      &              &   Y         \\ \hline	
+  pages        &    Y    &      &    Y         &             \\ \hline
+  publisher    &         &  Y   &    Y         &             \\ \hline	
+  series       &         &  Y   &    Y         &             \\ \hline
+  title        &    Y    &  Y   &    Y         &   Y         \\ \hline
+  type         &         &      &              &   Y         \\ \hline
+  volume       &    Y    &  Y   &    Y         &             \\ \hline
+  year         &    Y    &  Y   &    Y         &   Y         \\ \hline
+\end{tabular}
+{\\[3mm]Note: $^*$ In the case of an edited book ``editor" should be used instead of ``author".}
+\end{table}
+
+
+The bibliography file is structured like a database. For every entry it defines the type, a unique key, and a series of fields for the bibliographical data like ``author", ``title", etc. A sample entry is the following:
+
+\begin{verbatim}
+@article{atkinson2001,
+  author = {Atkinson, R. and Kintrea, K.},
+  title = {Disentangling area effects: Evidence from deprived and 
+           non-deprived neighbourhoods},
+  journal = {Urban Studies},
+  volume = {38},
+  number = {12},
+  year = {2001},
+  pages = {2277-2298},
+}
+\end{verbatim}
+
+This entry describes an article -- characterized by \verb|@article| --, with the key ``atkinson2001" and seven fields (``author", ``title", ``journal", etc.). The value for each field is given in curly brackets after an equal sign.
+
+Although BibTeX and natbib allow for a wide set of types and fields, we suggest to use only a subset of those for articles in REGION. This subset can handle all the necessary cases in the REGION house style. We suggest to use only four types, namely:
+\begin{enumerate}
+  \item \emph{article} for journal articles,
+  \item \emph{book} for books,
+  \item \emph{incollection} for contributions to edited books, and
+  \item \emph{techreport} for everything else.
+\end{enumerate}
+
+In principle you can use all field names that you find anywhere in a BibTeX documentation and even invent your own field names. This way you can save additional information with your entries, if you wish. However, when you generate your bibliography, only some of these fields will generate output. Which field produces output depends upon the type defined for this entry. Table \ref{tab:6} -- which is not formatted according to REGION's house style -- lists all combinations of suggested types and fields producing output. Wherever the table shows a ``Y", the value of that field shows up in the output.
+
+The bibliography style for REGION (REGION.bst) is a variant of the Chicago style. It defines one field name which is not standard in BibTeX: ``authoradd". This field is intended to publications where the author is an institution like the ``EIB", the ``OECD", etc. In such cases we usually have the choice to either use the acronym, which may produce bibliographical entries which are difficult to understand in cases where the acronym is not generally known, or to use the full name of the institution and to produce lengthy citations in the text. With  ``authoradd" we can combine the best of both options. If this field is defined for an entry, \LaTeX\ adds the content of this field to the author in the list of references, separated by a hyphen. For the citation in the text only the content of the author field is used. So, for example, to cite ``EIB, 2008", we may use the following entry in the bibliography file:
+
+\begin{verbatim}
+@techreport{eib2008,
+  ...
+  author = {EIB},
+  authoradd = {European Investment Bank},
+  year = {2008},
+  ...
+}
+\end{verbatim}
+
+A citation in the text with \verb|\citep{(eib2008)}| will produce ``(EIB 2008)" in the text, but ``EIB -- European Investment Bank (2008) $\ldots$" in the list of references.
+
+Another field which plays a special role and requires some explanation is ``type". As Table \ref{tab:6} shows, this field is only used with ``techreport" references. With those types of references, however, the field ``type" should be defined explicitly. Because, contrary to the other fields, this field has a default value of ``Technical Report", which in most cases is not what we need. Typical entries for the field ``type" are ``Discussion paper", ``research report", ``Dissertation", ``private communication", etc. The flexibility of the ``type" field is the main reason why we use ``techreport" as the type that captures everything else.
+
+
+\subsection{Web based support for bibliographies}
+\label{sec:5.4}
+
+Developing BibTeX entries for \LaTeX\ can be a tedious and time consuming process. This is particularly the case when the bibliography already exists in some other form like in a Word document. The main challenge in this case is to bring the unstructured entries of the Word document into the structured form of BibTeX entries. There are two advantages that come with this step and make it worth the effort:
+\begin{enumerate}
+  \item The formatting of the entries into the bibliography is done consistently by \LaTeX. So, neither the author nor the editor has to worry about formatting, placement of commas, periods, parentheses, colons, etc. 
+  \item The formatted entries in the Bibliography files can be reused easily for citation databases, cross referencing, and similar tools which ease the management of scientific literature and make our work more visible. 
+\end{enumerate}
+
+We understand that bringing bibliographic entries into a structured form can be tedious. Therefore, we are currently developing a set of web based tools that will support these steps. Currently, these tools are in an early stage. They will be made available in a few months. Their main user base will be authors who need to convert an existing, unstructured bibliography into BibTeX format for a submission to REGION. For those who write directly in \LaTeX, a number of tools and programs are available on the Internet that support the management of bibliographical entries in BibTeX format. Examples are JabRef, BibDesk and Zotero. They are more general than the tools we are developing and may therefore be a better choice for those writing directly in \LaTeX.
+
+
+\subsection{Generating the bibliography}
+\label{sec:5.5}
+
+The next two commands in this template are used to format, place and generate the bibliography. As mentioned above, the command \verb|\bibliographystyle{REGION}| links in our REGION-specific formatting definitions. The command \verb|\bibliography{test}| tells \LaTeX\ to use the bibliography file ``test.bib" and to place the formatted bibliography at this location in the output.
+
+Usually, the bibliography file is a separate file. In order to keep everything within one file for this template, we use the package ``filecontents" to place a sample bibliography file into the header of this document. This sample bibliography uses ``\textless type name\textgreater \textless field name\textgreater " as value for all fields except ``year". For the latter, which is treated specifically in the citations, we use the numeric values ``2001" to ``2004".
+
+\bibliographystyle{REGION}
+\bibliography{test}
+
+
+
+
+\end{document}
