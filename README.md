@@ -1,35 +1,9 @@
 
-## Tentative titles for the paper
-
-- TBA
-
-## Key ideas of the paper
-
-- TBA
-- TBA
-
-## Collaborators
-
-- Carlos Mendez  (carlos@gsid.nagoya-u.ac.jp, Nagoya University)
-- TBA
-- TBA
+<a href="https://colab.research.google.com/github/quarcs-lab/project2022p/blob/master/project2022p_notebook.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
-## Computational environment
+```
+<a href="https://colab.research.google.com/github/quarcs-lab/project2022p/blob/master/project2022p_notebook.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+```
 
-- Deepnote: 
-
-## Manuscript
-
-- Overleaf link:
-
-
-## Target Journal
-
-- TBA
-
-## Online meetings
-
-- More formal ZOOM meetings: https://carlos-mendez-research.youcanbook.me
-- More informal WONDER meetings: https://www.wonder.me/r?id=093a78bd-f7d5-4636-afdf-b6dd632eeb87
 
