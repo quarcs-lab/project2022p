@@ -8,5 +8,11 @@ By Carlos Mendez and Ayush Patnaik
 Nighttime lights (NTL) data are widely recognized as a useful proxy for monitoring national, subnational, and supranational economic activity. These data offer advantages over traditional economic indicators such as GDP, including greater spatial granularity, timeliness, lower cost, and comparability between regions regardless of statistical capacity or political interference. However, despite these benefits, the use of NTL data in regional science has been limited. This is in part due to the lack of accessible methods for processing and analyzing satellite images. To address this issue, this paper presents a user-friendly geocomputational notebook that illustrates how to process and analyze satellite NTL images. The evolution of regional disparities in India is presented as an illustrative example. The notebook first introduces a cloud-based Python environment for visualizing, analyzing, and transforming raster satellite images into tabular data. Next, it presents interactive tools to explore the space-time patterns of the tabulated data. Finally, it describes methods for evaluating the usefulness of NTL data in terms of their cross-sectional predictions, time-series predictions, and regional inequality dynamics.
 
 
+## Notebook features: 
 
-
+- Visualization of raster images and administrative boundaries
+- Bach download of VIIRS images from the EOG website
+- Algorithm to process zonal statistics for multiple regions over time.
+- Interactive visualization of choroplet maps, regional time series, and scatter plots
+- Panel-data validation of the GDP-NTL relationship
+- Visualization of regional inequality dynamics
